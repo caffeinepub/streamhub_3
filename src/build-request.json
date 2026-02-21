@@ -1,0 +1,216 @@
+{
+  "kind": "build_request",
+  "title": "Create streaming app with movies and TV episodes",
+  "projectName": "StreamHub",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model to store movie information including title, description, thumbnail URL, video URL, duration, genre, and release year",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Movie type is defined with all required fields",
+        "CRUD operations are available for movies",
+        "Movies can be queried and listed"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a backend data model to store TV show information including show title, description, thumbnail URL, and seasons",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "TV show type is defined with show-level metadata",
+        "Shows can contain multiple seasons",
+        "CRUD operations are available for TV shows"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a backend data model for episodes that belong to TV shows, including episode title, description, thumbnail URL, video URL, duration, season number, and episode number",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Episode type links to parent TV show",
+        "Episodes are organized by season and episode number",
+        "Episodes can be queried by show and season"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement backend methods to add, update, delete, and retrieve movies",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Movies can be added with all metadata",
+        "Movies can be updated",
+        "Movies can be deleted",
+        "All movies can be listed",
+        "Individual movies can be retrieved by ID"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement backend methods to add, update, delete, and retrieve TV shows and their episodes",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "TV shows can be added with metadata",
+        "Episodes can be added to shows",
+        "Shows and episodes can be updated and deleted",
+        "Episodes can be listed by show",
+        "Episodes can be filtered by season"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create a frontend home page that displays a grid of all available movies with their thumbnails, titles, and brief metadata",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Movies are displayed in a responsive grid layout",
+        "Each movie card shows thumbnail, title, duration, and genre",
+        "Cards are clickable to view movie details"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create a frontend page that displays a grid of all TV shows with their thumbnails, titles, and episode counts",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "TV shows are displayed in a responsive grid layout",
+        "Each show card displays thumbnail, title, and number of episodes",
+        "Cards are clickable to view show details and episodes"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create a frontend detail page for movies that displays full information and includes a video player",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Movie detail page shows all metadata",
+        "Video player allows playback of the movie",
+        "User can navigate back to the movie list"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create a frontend detail page for TV shows that displays show information and lists all episodes organized by season",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Show detail page displays show metadata",
+        "Episodes are grouped by season",
+        "Each episode shows thumbnail, title, duration, and episode number",
+        "Episodes are clickable to play"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create a frontend episode player page with video playback and episode metadata",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Video player allows episode playback",
+        "Episode title and description are displayed",
+        "User can navigate back to the show detail page",
+        "User can navigate to next/previous episode if available"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement a navigation system with separate sections for Movies and TV Shows",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigation bar includes Movies and TV Shows links",
+        "Active section is visually indicated",
+        "Navigation is accessible from all pages"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Design a cohesive streaming platform visual theme with modern, cinematic aesthetics using rich colors, elegant typography, and sophisticated layouts",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Visual theme uses rich, cinematic colors distinct from blue and purple",
+        "Typography is elegant and readable",
+        "Layouts emphasize visual content and media thumbnails",
+        "Design is consistent across all pages"
+      ]
+    }
+  ],
+  "constraints": [
+    "All backend logic must be implemented in a single Motoko actor",
+    "Video URLs must be stored as text references, not actual video file storage",
+    "Use React with TypeScript for all frontend components",
+    "Apply Tailwind CSS for all styling"
+  ],
+  "nonGoals": [
+    "Actual video file hosting or storage",
+    "User authentication or accounts",
+    "Video transcoding or streaming infrastructure",
+    "Content recommendation algorithms",
+    "Social features like ratings or comments"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Hero banner image with cinematic streaming theme for homepage (hero-banner.dim_1920x600.png)",
+      "Placeholder movie poster for sample content (movie-poster-placeholder.dim_300x450.png)",
+      "Placeholder TV show poster for sample content (tv-show-poster-placeholder.dim_300x450.png)"
+    ],
+    "edits": []
+  }
+}

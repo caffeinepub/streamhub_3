@@ -1,0 +1,192 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "StreamHub - Streaming Platform Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "summary": "Create home page displaying movie grid with thumbnails and metadata",
+      "acceptanceCriteria": [
+        "Movies are displayed in a responsive grid layout",
+        "Each movie card shows thumbnail, title, duration, and genre",
+        "Cards are clickable to view movie details"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MoviesPage.tsx",
+          "operation": "create",
+          "description": "Create MoviesPage component that fetches all movies from backend using backend.getMovie() and displays them in a responsive grid. Each movie card shows thumbnail from thumbnailUrl, title, duration (formatted as hours/minutes), and genre. Cards are clickable and navigate to movie detail page. Wire generated image frontend/public/assets/generated/movie-poster-placeholder.dim_300x450.png as fallback for movie thumbnails."
+        },
+        {
+          "path": "frontend/src/components/MovieCard.tsx",
+          "operation": "create",
+          "description": "Create reusable MovieCard component that accepts movie data (title, thumbnailUrl, duration, genre, id) as props and renders a card with thumbnail image, title, formatted duration, and genre. Component is clickable and uses React Router Link to navigate to /movies/:id route."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for MoviesPage at /movies path. Import and register MoviesPage component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create TV shows page displaying show grid with thumbnails and episode counts",
+      "acceptanceCriteria": [
+        "TV shows are displayed in a responsive grid layout",
+        "Each show card displays thumbnail, title, and number of episodes",
+        "Cards are clickable to view show details and episodes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/TVShowsPage.tsx",
+          "operation": "create",
+          "description": "Create TVShowsPage component that fetches all TV shows from backend using backend.getTVShow() and episodes using backend.getEpisodesByTVShow() to calculate episode counts. Display shows in a responsive grid. Each show card shows thumbnail from thumbnailUrl, title, and total episode count. Cards are clickable and navigate to show detail page. Wire generated image frontend/public/assets/generated/tv-show-poster-placeholder.dim_300x450.png as fallback for show thumbnails."
+        },
+        {
+          "path": "frontend/src/components/TVShowCard.tsx",
+          "operation": "create",
+          "description": "Create reusable TVShowCard component that accepts TV show data (title, thumbnailUrl, episodeCount, id) as props and renders a card with thumbnail image, title, and episode count display. Component is clickable and uses React Router Link to navigate to /shows/:id route."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for TVShowsPage at /shows path. Import and register TVShowsPage component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create movie detail page with full information and video player",
+      "acceptanceCriteria": [
+        "Movie detail page shows all metadata",
+        "Video player allows playback of the movie",
+        "User can navigate back to the movie list"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MovieDetailPage.tsx",
+          "operation": "create",
+          "description": "Create MovieDetailPage component that uses route parameter to fetch movie by ID using backend.getMovie(). Display full movie metadata including title, description, genre, release year, and duration. Integrate HTML5 video player using videoUrl from movie data. Include back navigation button that routes to /movies."
+        },
+        {
+          "path": "frontend/src/components/VideoPlayer.tsx",
+          "operation": "create",
+          "description": "Create reusable VideoPlayer component that accepts videoUrl as prop and renders an HTML5 video element with standard playback controls (play, pause, seek, volume, fullscreen). Style player to match streaming platform aesthetics."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for MovieDetailPage at /movies/:id path. Import and register MovieDetailPage component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create TV show detail page displaying show information and episodes organized by season",
+      "acceptanceCriteria": [
+        "Show detail page displays show metadata",
+        "Episodes are grouped by season",
+        "Each episode shows thumbnail, title, duration, and episode number",
+        "Episodes are clickable to play"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/TVShowDetailPage.tsx",
+          "operation": "create",
+          "description": "Create TVShowDetailPage component that uses route parameter to fetch TV show by ID using backend.getTVShow() and all episodes using backend.getEpisodesByTVShow(). Display show metadata (title, description, seasons). Group and display episodes by seasonNumber, showing thumbnail, title, duration, and episodeNumber for each. Episodes are clickable and navigate to /shows/:showId/episodes/:episodeId route."
+        },
+        {
+          "path": "frontend/src/components/EpisodeCard.tsx",
+          "operation": "create",
+          "description": "Create reusable EpisodeCard component that accepts episode data (title, thumbnailUrl, duration, episodeNumber, id, showId) as props. Renders a compact card showing episode thumbnail, episode number, title, and formatted duration. Component is clickable and uses React Router Link to navigate to episode player."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for TVShowDetailPage at /shows/:id path. Import and register TVShowDetailPage component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create episode player page with video playback and navigation",
+      "acceptanceCriteria": [
+        "Video player allows episode playback",
+        "Episode title and description are displayed",
+        "User can navigate back to the show detail page",
+        "User can navigate to next/previous episode if available"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/EpisodePlayerPage.tsx",
+          "operation": "create",
+          "description": "Create EpisodePlayerPage component that uses route parameters (showId, episodeId) to fetch episode using backend.getEpisode() and all show episodes using backend.getEpisodesByTVShow() to determine next/previous episodes. Display VideoPlayer component with episode videoUrl. Show episode title, description, season, and episode number. Include back button to /shows/:showId and next/previous episode navigation buttons when applicable."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for EpisodePlayerPage at /shows/:showId/episodes/:episodeId path. Import and register EpisodePlayerPage component in the router configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Implement navigation system with Movies and TV Shows sections",
+      "acceptanceCriteria": [
+        "Navigation bar includes Movies and TV Shows links",
+        "Active section is visually indicated",
+        "Navigation is accessible from all pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "create",
+          "description": "Create Navigation component with links to Movies (/movies) and TV Shows (/shows) sections. Use React Router NavLink to highlight active section. Style navigation bar to match streaming platform theme with cinematic aesthetics. Navigation is horizontally aligned and prominent."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create Layout component that wraps all pages and includes Navigation component at the top. Layout provides consistent structure across all pages with proper spacing and container management."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Layout component to ensure Navigation is accessible from all pages. Add redirect from root path / to /movies as default landing page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Design cohesive streaming platform visual theme with cinematic aesthetics",
+      "acceptanceCriteria": [
+        "Visual theme uses rich, cinematic colors distinct from blue and purple",
+        "Typography is elegant and readable",
+        "Layouts emphasize visual content and media thumbnails",
+        "Design is consistent across all pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global CSS custom properties for cinematic color palette using rich amber, warm gold, deep charcoal, and elegant neutral tones (avoiding blue and purple). Set elegant typography with refined font families. Apply dark background theme suitable for video content. Ensure high contrast for readability."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors matching the cinematic palette (amber, gold, charcoal neutrals). Configure elegant font families. Add custom spacing and border radius values for sophisticated card layouts. Configure responsive breakpoints for grid layouts."
+        },
+        {
+          "path": "frontend/src/components/HeroBanner.tsx",
+          "operation": "create",
+          "description": "Create HeroBanner component for the movies page that displays the generated hero image frontend/public/assets/generated/hero-banner.dim_1920x600.png with StreamHub branding overlay. Include welcome text and cinematic visual treatment. Component emphasizes the streaming platform identity."
+        },
+        {
+          "path": "frontend/src/pages/MoviesPage.tsx",
+          "operation": "modify",
+          "description": "Integrate HeroBanner component at the top of MoviesPage to provide cinematic entry point and branding for the application."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up TanStack Router with routes for movies, TV shows, movie details, show details, and episode player pages, with root redirect to /movies.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component that provides consistent structure with Navigation header and footer containing attribution across all pages.",
+  "frontend/src/components/Navigation.tsx": "Sticky navigation bar with StreamHub branding and links to Movies and TV Shows sections with active state highlighting.",
+  "frontend/src/components/HeroBanner.tsx": "Hero banner component displaying the generated hero image with StreamHub branding overlay and welcome message.",
+  "frontend/src/components/MovieCard.tsx": "Reusable movie card component displaying thumbnail, title, genre badge, and duration with hover effects and type-safe navigation to movie detail page using params prop.",
+  "frontend/src/components/TVShowCard.tsx": "Reusable TV show card component displaying thumbnail, title, and episode count with hover effects and type-safe navigation to show detail page using params prop.",
+  "frontend/src/components/EpisodeCard.tsx": "Compact episode card component showing thumbnail, episode number, title, and duration in a horizontal layout with play button overlay on hover and type-safe navigation using params prop.",
+  "frontend/src/components/VideoPlayer.tsx": "HTML5 video player component with standard controls for playing movie and episode content.",
+  "frontend/src/pages/MoviesPage.tsx": "Movies listing page with hero banner and responsive grid of movie cards, showing loading states and empty state when no movies are available.",
+  "frontend/src/pages/TVShowsPage.tsx": "TV shows listing page with responsive grid of show cards, showing loading states and empty state when no shows are available.",
+  "frontend/src/pages/MovieDetailPage.tsx": "Movie detail page displaying video player, full movie metadata including title, genre, release year, duration, and description with type-safe back navigation.",
+  "frontend/src/pages/TVShowDetailPage.tsx": "TV show detail page showing poster, metadata, and episodes organized by season in tabs with type-safe back navigation.",
+  "frontend/src/pages/EpisodePlayerPage.tsx": "Episode player page with video player, episode metadata, and type-safe next/previous episode navigation buttons using params prop.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching movies, TV shows, and episodes from the backend with proper caching and invalidation.",
+  "frontend/src/index.css": "Global styles with OKLCH color system using cinematic amber and gold tones for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom amber-themed colors, elegant typography with Inter and Outfit fonts, and extended border radius values."
+}

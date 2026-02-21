@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A streaming app to display all episodes and movies",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Hero banner image with cinematic streaming theme for homepage (hero-banner.dim_1920x600.png)\n- Placeholder movie poster for sample content (movie-poster-placeholder.dim_300x450.png)\n- Placeholder TV show poster for sample content (tv-show-poster-placeholder.dim_300x450.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-frontend-home-page-that-displays-a-grid-of-all-available-movies-with-their-thumbnails-titles-and-brief-metadata",
+      "title": "Create a frontend home page that displays a grid of all available movies with their thumbnails, titles, and brief metadata",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-page-that-displays-a-grid-of-all-tv-shows-with-their-thumbnails-titles-and-episode-counts",
+      "title": "Create a frontend page that displays a grid of all TV shows with their thumbnails, titles, and episode counts",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-detail-page-for-movies-that-displays-full-information-and-includes-a-video-player",
+      "title": "Create a frontend detail page for movies that displays full information and includes a video player",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-detail-page-for-tv-shows-that-displays-show-information-and-lists-all-episodes-organized-by-season",
+      "title": "Create a frontend detail page for TV shows that displays show information and lists all episodes organized by season",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-episode-player-page-with-video-playback-and-episode-metadata",
+      "title": "Create a frontend episode player page with video playback and episode metadata",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-navigation-system-with-separate-sections-for-movies-and-tv-shows",
+      "title": "Implement a navigation system with separate sections for Movies and TV Shows",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-cohesive-streaming-platform-visual-theme-with-modern-cinematic-aesthetics-using-rich-colors-elegant-typography-and-sophisticated-layouts",
+      "title": "Design a cohesive streaming platform visual theme with modern, cinematic aesthetics using rich colors, elegant typography, and sophisticated layouts",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Display movies in the app",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Display TV show episodes in the app",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Create a backend data model to store movie information including title, description, thumbnail URL, video URL, duration, genre, and release year",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create a backend data model to store TV show information including show title, description, thumbnail URL, and seasons",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create a backend data model for episodes that belong to TV shows, including episode title, description, thumbnail URL, video URL, duration, season number, and episode number",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Implement backend methods to add, update, delete, and retrieve movies",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement backend methods to add, update, delete, and retrieve TV shows and their episodes",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "StreamHub",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
